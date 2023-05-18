@@ -1,23 +1,30 @@
+import time 
+
+start = time.time()
+
 def solution(k, tangerine):
-    answer = 0
+# 답안 작성 부분 ===============
     dic={}
     for i in tangerine:
         if i not in dic:
             dic[i]=1
         else:
             dic[i]+=1
-    song=[]
-    for size,kind in dic.items():
-        song.append([kind,size])
-    song.sort(reverse=True)
-    #print(song)
+    box=[]
+    for size,number in dic.items():
+        box.append([number,size])
+    box.sort(reverse=True)
+    answer=0
     total=0
-    while(1):
-        total+=song[answer][0]
-        if k<=total:
+    for i in box:
+        total+=i[0]
+        if total>=k:
             answer+=1
             break
         else:
             answer+=1
-            
+   
+
+
+# ==============================
     return answer
