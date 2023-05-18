@@ -1,11 +1,11 @@
+from collections import deque
 def solution(people, limit):
-    people=sorted(people)
+# 답안 작성 부분 ===============
     answer=0
-    from collections import deque
+    people=sorted(people)
     de=deque(people)
-    while (len(de)>0):
+    while(len(de)>0):
         if len(de)==1:
-            de.pop()
             answer+=1
             break
         if de[0]+de[-1]<=limit:
@@ -15,5 +15,5 @@ def solution(people, limit):
         else:
             de.pop()
             answer+=1
-
+# ==============================
     return answer
