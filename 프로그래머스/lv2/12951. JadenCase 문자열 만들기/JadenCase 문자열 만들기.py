@@ -1,25 +1,11 @@
-import re
 def solution(s):
-    s_org=s
-    s_ch=re.sub('[^\s]+','!',s_org)
-    s=s.strip()
-    s=re.sub("[\s]+",' ',s)
-
-    t=s.split(' ')
-    word=[]
-    for i in t:
-
-        if i[0].isalpha()==True:
-            word.append(i[0].upper()+i[1:].lower())
+# 답안 작성 부분 ===============
+    total=[]
+    for i in s.split(" "):
+        if i!='' and i[0].isalpha():
+            total.append(i[0].upper() + i[1:].lower())
         else:
-            word.append(i.lower())
-    answer=''
-    cnt=0
-    for i in s_ch:
-
-        if i!=' ':
-            answer+=word[cnt]
-            cnt+=1
-        else:
-            answer+=' '
+            total.append(i.lower())
+    answer=' '.join(total)
+# ==============================
     return answer
